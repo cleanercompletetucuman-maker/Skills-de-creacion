@@ -1,0 +1,131 @@
+<!doctype html>
+<html
+  lang="es"
+  data-composition-variables='[{"id":"brand","type":"color","label":"Azul de marca","default":"#0D93DE"},{"id":"deep","type":"color","label":"Azul profundo","default":"#0A2540"}]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      :root {
+        --brand: #0d93de;
+        --deep: #0a2540;
+        --ink: #ffffff;
+        --bad: #ff3b47;
+        --good: #22c55e;
+        --toxic: #b6e62e;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--deep);
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        font-family: "Archivo Black", sans-serif;
+      }
+      #bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 50% 30%, rgba(13, 147, 222, 0.55), rgba(13, 147, 222, 0) 60%),
+          linear-gradient(180deg, #0c3a63 0%, var(--deep) 70%);
+      }
+      .bubble {
+        position: absolute;
+        border-radius: 50%;
+        border: 3px solid rgba(255, 255, 255, 0.22);
+        background: radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.04) 60%);
+      }
+      .wipe {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1080px;
+        height: 1920px;
+        z-index: 50;
+        opacity: 0;
+      }
+      #wipe-a {
+        background: var(--brand);
+      }
+      #wipe-b {
+        background: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="36.5"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div id="bg" data-layout-ignore>
+        <div id="b1" class="bubble" style="left: 60px; top: 1500px; width: 90px; height: 90px"></div>
+        <div id="b2" class="bubble" style="left: 250px; top: 1750px; width: 46px; height: 46px"></div>
+        <div id="b3" class="bubble" style="left: 420px; top: 1600px; width: 130px; height: 130px"></div>
+        <div id="b4" class="bubble" style="left: 640px; top: 1820px; width: 60px; height: 60px"></div>
+        <div id="b5" class="bubble" style="left: 820px; top: 1550px; width: 110px; height: 110px"></div>
+        <div id="b6" class="bubble" style="left: 960px; top: 1700px; width: 40px; height: 40px"></div>
+        <div id="b7" class="bubble" style="left: 150px; top: 900px; width: 70px; height: 70px"></div>
+        <div id="b8" class="bubble" style="left: 560px; top: 1100px; width: 52px; height: 52px"></div>
+        <div id="b9" class="bubble" style="left: 900px; top: 800px; width: 84px; height: 84px"></div>
+        <div id="b10" class="bubble" style="left: 330px; top: 400px; width: 36px; height: 36px"></div>
+        <div id="b11" class="bubble" style="left: 760px; top: 300px; width: 64px; height: 64px"></div>
+        <div id="b12" class="bubble" style="left: 40px; top: 200px; width: 50px; height: 50px"></div>
+      </div>
+
+      <div id="s1" data-composition-id="s1" data-composition-src="compositions/s1-hook.html" data-start="0" data-duration="3" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index: 2"></div>
+      <div id="s2" data-composition-id="s2" data-composition-src="compositions/s2-tension.html" data-start="3" data-duration="3.8" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index: 2"></div>
+      <div id="s3" data-composition-id="s3" data-composition-src="compositions/s3-trapo.html" data-start="6.8" data-duration="7.6" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index: 2"></div>
+      <div id="s4" data-composition-id="s4" data-composition-src="compositions/s4-actuar.html" data-start="14.4" data-duration="7.1" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index: 2"></div>
+      <div id="s5" data-composition-id="s5" data-composition-src="compositions/s5-mezcla.html" data-start="21.5" data-duration="8.2" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index: 2"></div>
+      <div id="s6" data-composition-id="s6" data-composition-src="compositions/s6-cta.html" data-start="29.7" data-duration="6.8" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index: 2"></div>
+
+      <div id="captions" data-composition-id="captions" data-composition-src="compositions/captions.html" data-start="0" data-duration="36.5" data-track-index="2" data-track-kind="captions" data-width="1080" data-height="1920" style="z-index: 40"></div>
+
+      <div id="wipe-a" class="wipe" data-layout-ignore></div>
+      <div id="wipe-b" class="wipe" data-layout-ignore></div>
+
+      <audio id="voz" class="clip" src="assets/voz.wav" data-start="0" data-duration="36.5" data-track-index="5" data-volume="1"></audio>
+      <audio id="musica" class="clip" src="assets/musica.wav" data-start="0" data-duration="36.5" data-track-index="6" data-volume="0.55"></audio>
+      <audio id="sfx" class="clip" src="assets/sfx.wav" data-start="0" data-duration="36.5" data-track-index="7" data-volume="0.8"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      // Burbujas que suben (repeticiones finitas, deterministas)
+      const bubbles = [
+        ["#b1", 9, 0], ["#b2", 7, 1.2], ["#b3", 11, 0.4], ["#b4", 8, 2.1], ["#b5", 10, 0.8], ["#b6", 6.5, 1.7],
+        ["#b7", 9.5, 0.2], ["#b8", 7.5, 1.1], ["#b9", 10.5, 0.6], ["#b10", 6, 1.5], ["#b11", 8.5, 0.3], ["#b12", 7, 0.9],
+      ];
+      bubbles.forEach(([id, d, off], i) => {
+        tl.fromTo(id, { y: 0 }, { y: -2000, duration: d, ease: "none", repeat: Math.ceil(36.5 / d), }, -off);
+        tl.fromTo(id, { x: -14 }, { x: 14, duration: 1.6 + (i % 4) * 0.3, ease: "sine.inOut", yoyo: true, repeat: 24 }, 0);
+      });
+      // Barridos de marca entre escenas (cubren cada corte)
+      [3, 6.8, 14.4, 21.5, 29.7].forEach((t) => {
+        tl.set("#wipe-b", { opacity: 1, xPercent: -100 }, t - 0.2);
+        tl.to("#wipe-b", { xPercent: 0, duration: 0.14, ease: "power3.in" }, t - 0.2);
+        tl.set("#wipe-a", { opacity: 1, xPercent: -100 }, t - 0.15);
+        tl.to("#wipe-a", { xPercent: 0, duration: 0.14, ease: "power3.in" }, t - 0.15);
+        tl.set("#wipe-b", { xPercent: 100 }, t);
+        tl.to("#wipe-a", { xPercent: 100, duration: 0.16, ease: "power3.out" }, t + 0.01);
+      });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

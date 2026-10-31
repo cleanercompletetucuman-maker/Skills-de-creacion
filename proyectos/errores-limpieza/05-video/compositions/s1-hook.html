@@ -1,0 +1,85 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #s1-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    .s1-line { position: absolute; left: 80px; width: 860px; text-align: center; color: #fff; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    #s1-l1 { top: 200px; font-size: 76px; }
+    #s1-l2 { top: 300px; font-size: 92px; }
+    #s1-l3 { top: 405px; font-size: 112px; }
+    #s1-l4 { top: 545px; font-size: 92px; }
+    .s1-w { display: inline-block; margin: 0 8px; }
+    #s1-dirty { background: #ff3b47; padding: 4px 22px; border-radius: 16px; display: inline-block; }
+    #s1-mist { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #s1-bottle { position: absolute; left: 640px; top: 660px; width: 300px; height: 525px; }
+    #s1-x { position: absolute; left: 140px; top: 690px; width: 300px; height: 300px; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s1" data-width="1080" data-height="1920">
+    <div id="s1-cam">
+      <svg id="s1-mist" viewBox="0 0 1080 1920" data-layout-ignore>
+        <g id="s1-drops">
+          <circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="14" /><circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="10" />
+          <circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="18" /><circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="12" />
+          <circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="9" /><circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="16" />
+          <circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="11" /><circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="20" />
+          <circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="13" /><circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="8" />
+          <circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="15" /><circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="12" />
+          <circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="17" /><circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="10" />
+          <circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="14" /><circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="19" />
+          <circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="9" /><circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="13" />
+          <circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="11" /><circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="16" />
+          <circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="12" /><circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="18" />
+          <circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="10" /><circle class="s1-d" cx="670" cy="742" fill="#9fdcff" r="14" />
+        </g>
+      </svg>
+      <svg id="s1-bottle" viewBox="0 0 400 700">
+        <g id="s1-head">
+          <rect x="40" y="88" width="110" height="44" rx="12" fill="#0a2540" />
+          <rect x="120" y="50" width="220" height="130" rx="34" fill="#0d93de" />
+          <path id="s1-trigger" d="M150 170 L205 170 L195 290 Q170 300 160 280 Z" fill="#0b78b8" />
+        </g>
+        <rect x="205" y="175" width="90" height="85" rx="10" fill="#e6f4ff" />
+        <rect x="145" y="250" width="210" height="430" rx="48" fill="#ffffff" />
+        <rect x="170" y="370" width="160" height="200" rx="18" fill="#0d93de" />
+        <path d="M250 405 C 222 445 210 468 210 490 A 40 40 0 0 0 290 490 C 290 468 278 445 250 405 Z" fill="#ffffff" />
+        <rect x="165" y="270" width="26" height="380" rx="13" fill="#d6ecfb" />
+      </svg>
+      <div id="s1-l1" class="s1-line"><span id="s1-w1" class="s1-w">Si</span><span id="s1-w2" class="s1-w">limpiás</span><span id="s1-w3" class="s1-w">así…</span></div>
+      <div id="s1-l2" class="s1-line"><span id="s1-w4" class="s1-w">estás</span></div>
+      <div id="s1-l3" class="s1-line"><span id="s1-w5" class="s1-w"><span id="s1-dirty">ensuciando</span></span></div>
+      <div id="s1-l4" class="s1-line"><span id="s1-w6" class="s1-w">más</span></div>
+      <svg id="s1-x" viewBox="0 0 300 300">
+        <circle cx="150" cy="150" r="138" fill="#ff3b47" stroke="#ffffff" stroke-width="12" />
+        <path d="M95 95 L205 205 M205 95 L95 205" stroke="#ffffff" stroke-width="34" stroke-linecap="round" />
+      </svg>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s1-cam", { scale: 1 }, { scale: 1.08, duration: 3, ease: "none", transformOrigin: "50% 45%" }, 0);
+    // Gatillo apretado desde el frame 0
+    tl.fromTo("#s1-trigger", { rotation: 0 }, { rotation: -10, svgOrigin: "180 175", duration: 0.12, yoyo: true, repeat: 7, ease: "power1.inOut" }, 0);
+    tl.fromTo("#s1-bottle", { rotation: -4 }, { rotation: 3, duration: 0.5, yoyo: true, repeat: 5, ease: "sine.inOut", transformOrigin: "60% 90%" }, 0);
+    // Nube de spray: ya en el aire en el frame 0
+    const drops = gsap.utils.toArray("#s1-mist .s1-d");
+    drops.forEach((d, i) => {
+      const ang = (-0.55 + (i % 8) * 0.14) + Math.floor(i / 8) * 0.03;
+      const dist = 300 + (i % 5) * 65 + Math.floor(i / 8) * 40;
+      const tx = -Math.cos(ang) * dist;
+      const ty = Math.sin(ang) * dist + 60;
+      const pre = 0.25 + (i % 6) * 0.08;
+      tl.fromTo(d, { x: tx * pre, y: ty * pre, opacity: 0.95 }, { x: tx, y: ty, opacity: 0.7, duration: 1.4 + (i % 3) * 0.2, ease: "power2.out" }, 0);
+    });
+    // El spray "ensucia": la nube se vuelve roja
+    tl.to(drops, { attr: { fill: "#ff3b47" }, duration: 0.25, stagger: 0.01 }, 1.1);
+    tl.to(drops, { scale: 1.6, transformOrigin: "50% 50%", duration: 0.4, ease: "back.out(2)", stagger: 0.008 }, 1.1);
+    // Texto palabra por palabra, en sincronía con la voz
+    [["#s1-w1", 0.1], ["#s1-w2", 0.3], ["#s1-w3", 0.72], ["#s1-w4", 1.07], ["#s1-w5", 1.38], ["#s1-w6", 1.96]].forEach(([id, t]) => {
+      tl.fromTo(id, { opacity: 0, y: 40, scale: 0.6 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(2.2)" }, t);
+    });
+    tl.fromTo("#s1-dirty", { rotation: 0 }, { rotation: -3, duration: 0.08, yoyo: true, repeat: 5 }, 1.6);
+    // Sello ✕
+    tl.fromTo("#s1-x", { opacity: 0, scale: 2.4, rotation: -30 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: "elastic.out(1, 0.5)" }, 1.48);
+    tl.to("#s1-x", { rotation: 6, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1 }, 2.0);
+    window.__timelines["s1"] = tl;
+  </script>
+</template>
